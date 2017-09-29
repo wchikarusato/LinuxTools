@@ -1,0 +1,401 @@
+# この viminfo ファイルは Vim 7.4 によって生成されました.
+# 変更する際には十分注意してください!
+
+# このファイルが書かれた時の 'encoding' の値
+*encoding=utf-8
+
+
+# hlsearch on (H) or off (h):
+~h
+# 最後の 検索パターン:
+~MSle0~/set
+
+# コマンドライン 項目の履歴 (新しいものから古いものへ):
+:q!
+:wq
+:'<,'>q!
+:set number
+:w
+
+# 検索文字列 項目の履歴 (新しいものから古いものへ):
+?/set
+?/noc
+?/shift
+?/Wuf
+?/wuff
+?/kill
+
+# 式 項目の履歴 (新しいものから古いものへ):
+
+# 入力行 項目の履歴 (新しいものから古いものへ):
+
+# 入力行 項目の履歴 (新しいものから古いものへ):
+
+# レジスタ:
+""1	CHAR	0
+	
+	case "${TERM}" in
+	kterm*|xterm)
+	    precmd() {
+	        echo -ne "\033]0;${USER}@${HOST%%.*}:${PWD}\007"
+	    }
+	    ;;
+	e
+"2	LINE	0
+	
+"3	LINE	0
+	
+"4	CHAR	0
+	# Emacs ライクな操作を有効にする（文字入力中に Ctrl-F,B でカーソル移動など）
+	# Vi ライクな操作が好みであれば `bindkey -v` とする
+	bindkey -e
+	
+	# 入力したコマンドが存在せず、かつディレクトリ名と一致するなら、ディレクトリに cd する
+	# 例： /usr/bin と入力すると /usr/bin ディレクトリに移動
+	setopt auto_cd
+	
+	# ↑を設定すると、 .. とだけ入力したら1つ上のディレクトリに移動できるので……
+	# 2つ上、3つ上にも移動できるようにする
+	alias ...='cd ../..'
+	alias ....='cd ../../..'
+	
+	# "~hoge" が特定のパス名に展開されるようにする（ブックマークのようなもの）
+	# 例： cd ~hoge と入力すると /long/path/to/hogehoge ディレクトリに移動
+	hash -d hoge=/long/path/to/hogehoge
+	
+	# cd した先のディレクトリをディレクトリスタックに追加する
+	# ディレクトリスタックとは今までに行ったディレクトリの履歴のこと
+	# `cd +<Tab>` でディレクトリの履歴が表示され、そこに移動できる
+	setopt auto_pushd
+	
+	# pushd したとき、ディレクトリがすでにスタックに含まれていればスタックに追加しない
+	setopt pushd_ignore_dups
+	
+	# 拡張 glob を有効にする
+	# glob とはパス名にマッチするワイルドカードパターンのこと
+	# （たとえば `mv hoge.* ~/dir` における "*"）
+	# 拡張 glob を有効にすると # ~ ^ もパターンとして扱われる
+	# どういう意味を持つかは `man zshexpn` の FILENAME GENERATION を参照
+	setopt extended_glob
+	
+	# 入力したコマンドがすでにコマンド履歴に含まれる場合、履歴から古いほうのコマンドを削除する
+	# コマンド履歴とは今まで入力したコマンドの一覧のことで、上下キーでたどれる
+	setopt hist_ignore_all_dups
+	
+	# コマンドがスペースで始まる場合、コマンド履歴に追加しない
+	# 例： <Space>echo hello と入力
+	setopt hist_ignore_space
+	
+	# <Tab> でパス名の補完候補を表示したあと、
+	# 続けて <Tab> を押すと候補からパス名を選択できるようになる
+	# 候補を選ぶには <Tab> か Ctrl-N,B,F,P
+	zstyle ':completion:*:default' menu select=1
+	
+	# 単語の一部として扱われる文字のセットを指定する
+	# ここではデフォルトのセットから / を抜いたものとする
+	# こうすると、 Ctrl-W でカーソル前の1単語を削除したとき、 / までで削除が止まる
+	WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+	
+"5	CHAR	0
+	# 自動補完を有効にする
+	# コマンドの引数やパス名を途中まで入力して <Tab> を押すといい感じに補完してくれる
+	# 例： `cd path/to/<Tab>`, `ls -<Tab>`
+	autoload -U compinit; compinit
+	
+	
+"6	LINE	0
+	#
+"7	LINE	0
+	# $Id: .screenrc 190 2010-04-17 07:54:54Z yoshikaw $
+"8	LINE	0
+	# trl-F,B でカーソル移動など）
+"9	LINE	0
+	"Colorscheme twilight
+"-	CHAR	0
+	-
+
+# ファイルマーク:
+'0  39  0  ~/plotsin.zsh
+'1  1  2  ~/plotsin.zsh
+'2  1  0  /etc/shells
+'3  7  0  ~/.zshrc
+'4  6  35  ~/.zshrc
+'5  2  0  ~/.zshrc
+'6  1  0  ~/.zshrc
+'7  1  0  ~/.bashrc
+'8  35  0  ~/.viminfo
+'9  234  0  /tmp/tutorn8Nt2f
+
+# ジャンプリスト (新しいものが先):
+-'  39  0  ~/plotsin.zsh
+-'  10  0  ~/plotsin.zsh
+-'  1  0  ~/plotsin.zsh
+-'  1  0  /etc/shells
+-'  7  0  ~/.zshrc
+-'  6  0  ~/.zshrc
+-'  2  0  ~/.zshrc
+-'  8  0  ~/.zshrc
+-'  1  0  ~/.zshrc
+-'  1  0  ~/.bashrc
+-'  35  0  ~/.viminfo
+-'  1  0  ~/.viminfo
+-'  234  0  /tmp/tutorn8Nt2f
+-'  1  0  /tmp/tutorn8Nt2f
+-'  34  17  /tmp/tutorpZOAvL
+-'  1  0  /tmp/tutorpZOAvL
+-'  537  0  /tmp/tutork7S8dh
+-'  434  1  /tmp/tutork7S8dh
+-'  1  0  /tmp/tutork7S8dh
+-'  212  0  ~/.screenrc
+-'  228  0  ~/.screenrc
+-'  1  0  /home/.screenrc
+-'  2  0  ~/test.txt
+-'  33  1  ~/.vimrc
+-'  32  0  ~/.vimrc
+-'  30  1  ~/.vimrc
+-'  29  0  ~/.vimrc
+-'  28  1  ~/.vimrc
+-'  27  0  ~/.vimrc
+-'  24  0  ~/.vimrc
+-'  23  0  ~/.vimrc
+-'  22  1  ~/.vimrc
+-'  20  1  ~/.vimrc
+-'  19  1  ~/.vimrc
+-'  16  0  ~/.vimrc
+-'  15  0  ~/.vimrc
+-'  14  0  ~/.vimrc
+-'  11  1  ~/.vimrc
+-'  10  0  ~/.vimrc
+-'  9  0  ~/.vimrc
+-'  8  0  ~/.vimrc
+-'  7  0  ~/.vimrc
+-'  6  1  ~/.vimrc
+-'  5  0  ~/.vimrc
+-'  4  0  ~/.vimrc
+-'  1  4  ~/.vimrc
+-'  38  4  ~/.vimrc
+-'  40  0  ~/.vimrc
+-'  58  0  ~/.vimrc
+-'  25  0  ~/.vimrc
+-'  46  16  ~/.vimrc
+-'  48  2  ~/.vimrc
+-'  50  2  ~/.vimrc
+-'  6  0  ~/.screenrc.local
+-'  18  0  ~/.screenrc.local
+-'  230  0  ~/.screenrc
+-'  25  0  ~/.screenrc
+-'  82  0  ~/.screenrc
+-'  1  0  /etc/sysconfig/iptables
+-'  63  24  ~/.screenrc
+-'  62  24  ~/.screenrc
+-'  1  0  ~/.screenrc.local
+-'  1  0  ~/.screenrc
+-'  233  0  ~/.screenrc
+-'  234  0  ~/.screenrc
+-'  236  0  ~/.screenrc
+-'  12  10  ~/.zshrc
+-'  55  0  ~/.vimrc
+-'  56  0  ~/.vimrc
+-'  65  35  ~/.zshrc
+-'  244  0  ~/.screenrc
+-'  54  0  ~/.vimrc
+-'  2  0  ~/.vimrc
+-'  21  0  ~/.vimrc
+-'  13  0  ~/.vimrc
+-'  45  0  ~/.vimrc
+-'  102  0  ~/.vimrc
+-'  60  0  ~/.vimrc
+-'  106  11  ~/.vimrc
+-'  1  0  ~/test.txt
+-'  59  11  ~/.vimrc
+-'  133  11  ~/.vimrc
+-'  43  0  ~/.vimrc
+-'  3  0  ~/.vimrc
+-'  87  11  ~/.vimrc
+-'  33  1  ~/.vimrc
+-'  32  0  ~/.vimrc
+-'  30  1  ~/.vimrc
+-'  29  0  ~/.vimrc
+-'  28  1  ~/.vimrc
+-'  27  0  ~/.vimrc
+-'  2  0  ~/test.txt
+-'  33  1  ~/.vimrc
+-'  32  0  ~/.vimrc
+-'  1  0  /etc/shells
+
+# ファイル内マークの履歴 (新しいものから古いもの):
+
+> ~/plotsin.zsh
+	"	39	0
+	^	1	3
+	.	1	2
+	+	39	0
+	+	1	2
+
+> /etc/shells
+	"	1	0
+
+> ~/.zshrc
+	"	7	0
+	^	7	0
+	.	7	0
+	+	118	29
+	+	65	29
+	+	12	0
+	+	8	34
+	+	1	102
+	+	1	20
+	+	2	8
+	+	8	0
+	+	8	0
+	+	6	36
+	+	7	0
+	+	8	0
+	+	7	0
+
+> ~/.bashrc
+	"	1	0
+
+> ~/.viminfo
+	"	35	0
+
+> /tmp/tutorn8Nt2f
+	"	234	0
+	^	7	113
+
+> /tmp/tutorpZOAvL
+	"	34	17
+
+> /tmp/tutork7S8dh
+	"	537	0
+	^	434	1
+	.	434	0
+	+	434	0
+
+> ~/.screenrc
+	"	212	0
+	^	228	0
+	.	39	0
+	+	268	0
+	+	233	13
+	+	234	0
+	+	237	0
+	+	232	8
+	+	230	0
+	+	4	0
+	+	24	0
+	+	39	0
+
+> /home/.screenrc
+	"	1	0
+
+> ~/test.txt
+	"	2	0
+	^	1	11
+	.	1	10
+	+	3	0
+	+	1	10
+
+> ~/.vimrc
+	"	33	1
+	^	40	0
+	.	28	0
+	+	105	2
+	+	59	1
+	+	1	0
+	+	60	0
+	+	70	0
+	+	103	0
+	+	45	0
+	+	4	0
+	+	5	0
+	+	6	0
+	+	7	0
+	+	8	0
+	+	9	0
+	+	10	0
+	+	11	0
+	+	12	0
+	+	13	0
+	+	14	0
+	+	14	0
+	+	14	0
+	+	15	0
+	+	16	0
+	+	17	0
+	+	18	0
+	+	19	0
+	+	20	0
+	+	22	0
+	+	23	0
+	+	24	0
+	+	25	0
+	+	26	0
+	+	27	0
+	+	28	0
+	+	29	0
+	+	30	0
+	+	32	0
+	+	33	0
+	+	34	0
+	+	35	0
+	+	36	0
+	+	37	0
+	+	38	0
+	+	39	0
+	+	40	0
+	+	45	0
+	+	14	0
+	+	6	0
+	+	11	0
+	+	14	14
+	+	2	0
+	+	2	0
+	+	2	0
+	+	58	0
+	+	54	12
+	+	39	0
+	+	38	0
+	+	37	0
+	+	36	0
+	+	19	0
+	+	20	0
+	+	22	0
+	+	23	0
+	+	24	0
+	+	23	0
+	+	24	0
+	+	5	0
+	+	4	0
+	+	36	0
+	+	37	0
+	+	38	0
+	+	39	0
+	+	46	18
+	+	51	14
+	+	47	0
+	+	48	0
+	+	49	0
+	+	50	0
+	+	51	1
+	+	50	2
+	+	48	3
+	+	49	3
+	+	47	0
+	+	51	0
+	+	50	2
+	+	49	2
+	+	48	2
+	+	30	0
+	+	33	0
+	+	53	16
+	+	28	0
+
+> ~/.screenrc.local
+	"	6	0
+	^	18	51
+	.	18	41
+	+	18	41
+
+> /etc/sysconfig/iptables
+	"	1	0
