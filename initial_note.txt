@@ -1,0 +1,24 @@
+# VM自体の設定
+  パスを C:\usr\local に変える。
+  centosイメージファイルの配置場所を変える
+  これ最初に設定しないとイメージマウント時にログとかが勝手にマイドキュメント配下に出力される
+
+# ツールインストール
+  wget, vim, zip, unzip, screen, ruby, git
+  jdk
+  https://weblabo.oscasierra.net/java-install-oracle-jdk8-centos7/
+  apache
+  https://weblabo.oscasierra.net/installing-tomcat8-centos7-1/
+
+# selinux無効化
+  http://web.plus-idea.net/2012/04/selinux-apache-error/
+  firewall無効
+  $ systemctl disable firewalld
+  $ systemctl stop firewalld
+  これを切らないとTeratermでssh接続ができない
+
+# ログインシェルにzshを設定
+  zshの方が色々と使い勝手good
+  $ chsh -s /bin/zsh
+
+
