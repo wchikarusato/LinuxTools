@@ -1,0 +1,75 @@
+apacheあれこれ
+
+# RewriteCond
+  RewriteRuleを実行する為の条件を定義する記述
+  
+  RewriteCond %変数名(テスト文字列) 条件パターン(正規表現) [フラグ]
+  RewriteRule ここにRewriteRuleのURL書換＆転送設定を記述
+
+
+# インストールされてるか確認
+  $ httpd -v
+  なければ yum install
+  
+  動いてるか確認
+  $ service httpd status
+  
+  httpd起動
+  $ sudo service httpd start
+  または
+  $ sudo /etc/init.d/httpd start
+  
+  VirtualBoxで80を8081にして
+  localhost:8081にブラウザでアクセス
+  ->表示されればok
+  表示されない場合は、centos側のSELinuxとかを切る
+
+
+# httpdのありか
+- confとかhttpd本体
+  /etc/httpd
+- htmlのページ
+  /var/www/html
+
+
+# mod_rewriteの有効化
+  httpdでリダイレクトさせるのに使うapacheのモジュール
+  $ sudo vim /etc/httpd/conf/httpd.conf
+
+  以下の2行追加
+  ~~~
+  #LoadModule rewrite_module modules/mod_rewrite.so
+  LoadModule rewrite_module libexec/apache24/mod_rewrite.so
+  LogLevel rewrite:trace8
+  ~~~
+
+  ネットで調べると以下の様にログ書くのがヒットするけど
+  おまえのRewriteLogなんて知らないからﾌﾟｷﾞｬｰと怒られる
+  以下の書き方はApache2.2までしか使えない模様。2.4の場合は上の通り
+  http://mezina1942.hatenablog.com/entry/2017/09/18/224503
+
+  ~~~
+  LoadModule rewrite_module modules/mod_rewrite.so
+  RewriteLog "/tmp/rewrite.log"
+  RewriteLogLevel 8
+  ~~~
+
+# rewrite_ruleの使い方
+  RewriteRule <正規表現> <書き変え後のURL> [<フラグ>]
+  
+- simple example
+  以下の様にしたいとする
+  http://localhost:8081/hoge/a.html -> http://localhost:8081/a.html
+  http://localhost:8081/hoge/b.html -> http://localhost:8081/b.html
+
+  RewriteEngine on
+  RewriteRule ^/hoge/(.*)$ /$1 [L]
+  をhttpd.confに入れてtomcat再起動すればok
+  (.*)でマッチした文字列を$1に入れている
+
+-- オプションあれこれ
+  [L]はこのルールにマッチしたら次のルールに進まないの意味
+  [R=301,L] 301でリダイレクトして[L]
+  Rを指定しない場合は302でリダイレクトされる
+
+
