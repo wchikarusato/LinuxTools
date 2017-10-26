@@ -1,0 +1,40 @@
+コマンドのノート
+
+- cuiの操作あれこれ
+  ctrl+a 行頭にカーソル移動
+  ctrl+e 行末にカーソル移動
+
+- yyyymmdd形式でls
+  年月日+時間で表示してくれる
+  $ ls --full-time
+  
+  フォーマット指定したい場合はこっち
+  $ ls -l --time-style="+%Y-%m-%d %H:%M:%S"
+
+- findした結果を更新日時の順でls表示
+  $ find -name "hogehoge*" | xargs ls -lrt
+
+
+- apache再起動
+  $ systemctl restart httpd
+  または
+  $ /usr/sbin/httpd -k restart
+
+  $ systemctl status httpd
+  でステータスokになってれば起動ok
+  または
+  $ ss -natu
+  で:80がlistenになってればok
+
+- top以外でステータスチェック
+  $ vmstat 10
+  10秒置きに process, freememory, 末業のcpu辺りをチェック
+
+  重い場合、見たいポイントはpage-inが多発しているかどうか
+  メモリが足りなくてHDDとのやり取りが頻発してる状況
+
+  $ sudo yum install dstat
+  回線速度の使用状況が resv, sendで見れる
+  
+  
+
