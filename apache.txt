@@ -1,12 +1,5 @@
 apacheあれこれ
 
-# RewriteCond
-  RewriteRuleを実行する為の条件を定義する記述
-  
-  RewriteCond %変数名(テスト文字列) 条件パターン(正規表現) [フラグ]
-  RewriteRule ここにRewriteRuleのURL書換＆転送設定を記述
-
-
 # インストールされてるか確認
   $ httpd -v
   なければ yum install
@@ -22,7 +15,7 @@ apacheあれこれ
   VirtualBoxで80を8081にして
   localhost:8081にブラウザでアクセス
   ->表示されればok
-  表示されない場合は、centos側のSELinuxとかを切る
+  表示されない場合は、centos側のSELinuxとかoffにしてない可能性が高い
 
 
 # httpdのありか
@@ -54,6 +47,7 @@ apacheあれこれ
   RewriteLogLevel 8
   ~~~
 
+
 # rewrite_ruleの使い方
   RewriteRule <正規表現> <書き変え後のURL> [<フラグ>]
   
@@ -71,5 +65,12 @@ apacheあれこれ
   [L]はこのルールにマッチしたら次のルールに進まないの意味
   [R=301,L] 301でリダイレクトして[L]
   Rを指定しない場合は302でリダイレクトされる
+
+
+# RewriteCond
+  RewriteRuleを実行する為の条件を定義する記述
+  
+  RewriteCond %変数名(テスト文字列) 条件パターン(正規表現) [フラグ]
+  RewriteRule ここにRewriteRuleのURL書換＆転送設定を記述
 
 
