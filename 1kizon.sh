@@ -17,11 +17,7 @@ fi
 ruby -Ku sort_wgetlog.rb 1kizon.log > sort_1kizon.log
 
 if [ $1 = $prod ] || [ $1 = $prodhttps ]; then
-  rm -rf bike.sateiomakase.com
-  rm -rf m.sateiomakase.com
-  rm -rf hikkoshi.mobi
+  rm -rf 本番のドメイン
 else
-  rm -rf bike-dev.sateiomakase.com
-  rm -rf m-dev.sateiomakase.com
-  rm -rf dev.hikkoshi.mobi
+  rm -rf 開発のドメイン
 fi
